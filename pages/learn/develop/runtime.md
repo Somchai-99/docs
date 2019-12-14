@@ -74,7 +74,7 @@ __Note:__ To use the `dbus-send` command in the example you will need to install
 
 #### Change the Device hostname
 
-Changing the device hostname via a dbus-send method invocation of `org.freedesktop.hostname1.SetHostname` is no longer possible, due to the fact that this would attempt to write to `/etc/hostname`, which on the host OS is stored in the read-only root partition. To change the device hostname, use the [balena supervisor API][supervisor-api-device-host-config]
+Changing the device hostname via a dbus-send method invocation of `org.freedesktop.hostname1.SetHostname` is no longer possible, due to the fact that this would attempt to write to `/etc/hostname`, which on the [host OS][host-os] is stored in the read-only root partition. To change the device hostname, use the [balena supervisor API][supervisor-api-device-host-config]
 
 
 #### Rebooting the Device
@@ -341,3 +341,4 @@ Devices can be selected in many ways, for example by `/dev` entry, labels, or UU
 [network-ipam]:https://docs.docker.com/compose/compose-file/compose-file-v2/#network-configuration-reference
 [network-aliases]:https://docs.docker.com/compose/compose-file/compose-file-v2/#aliases
 [services-masterclass]:{{ $links.githubProjects }}/services-masterclass#4-networking-types
+[host-os]:/reference/OS/overview/2.x/
