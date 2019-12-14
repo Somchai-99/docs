@@ -74,7 +74,8 @@ __Note:__ To use the `dbus-send` command in the example you will need to install
 
 #### Change the Device hostname
 
-Changing the device hostname is no longer possible via this method, due to the fact that the `/etc/hostname` file is stored on the read-only root partition. To change the device hostname, use the [balena supervisor API][supervisor-api-device-host-config].
+Changing the device hostname via a dbus-send method invocation of `org.freedesktop.hostname1.SetHostname` is no longer possible, due to the fact that this would attempt to write to `/etc/hostname`, which on the host OS is stored in the read-only root partition. To change the device hostname, use the [balena supervisor API][supervisor-api-device-host-config]
+
 
 #### Rebooting the Device
 ```Bash
