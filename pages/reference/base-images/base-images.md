@@ -18,15 +18,15 @@ excerpt: Docker images maintained by {{ $names.company.lower }}
 	- i386
 - Multiple Distributions:
 	- [Debian](https://www.debian.org/): jessie, sid, stretch and buster
-	- [Alpine](https://alpinelinux.org/): 3.5, 3.6, 3.7, 3.8, 3.9, 3.10 and edge
-	- [Ubuntu](https://www.ubuntu.com/): trusty (14.04), xenial (16.04), artful (17.10), bionic (18.04), and cosmic (18.10)
-	- [Fedora](https://getfedora.org/): 26, 28, 29 and 30
+	- [Alpine](https://alpinelinux.org/): 3.6, 3.7, 3.8, 3.9, 3.10 and edge
+	- [Ubuntu](https://www.ubuntu.com/): xenial (16.04), bionic (18.04), cosmic (18.10), disco (19.04) and eoan (19.10)
+	- [Fedora](https://getfedora.org/): 26, 28, 29, 30 and 31
 - Multiple language stacks:
-	- [Node.js](https://nodejs.org/en/): 12.7.0, 11.15.0, 10.16.1, 8.16.1 and 6.17.1
-	- [Python](https://www.python.org/): 2.7.16, 3.5.7, 3.6.9 and 3.7.4
-	- [openJDK](https://openjdk.java.net/): 7-jdk/jre, 8-jdk/jre, 10-jdk/jre and 11-jdk/jre
-	- [Golang](https://golang.org/): 1.12.7, 1.11.12 and 1.10.8
-	- [Dotnet](https://docs.microsoft.com/en-gb/dotnet/core/): 2.2-sdk/runtime/aspnet,3.0-sdk/runtime/aspnet,2.1-sdk/runtime/aspnet
+	- [Node.js](https://nodejs.org/en/): 13.1.0, 12.13.0, 11.15.0, 10.17.0, 9.11.2, 8.16.1 and 8.11.1
+	- [Python](https://www.python.org/): 2.7.17, 3.8.0, 3.7.5, 3.6.9, 3.5.7 and 3.4.10
+	- [openJDK](https://openjdk.java.net/): 7-jdk/jre, 8-jdk/jre and 11-jdk/jre
+	- [Golang](https://golang.org/): 1.13.4, 1.12.13, 1.11.13 and 1.10.8
+	- [Dotnet](https://docs.microsoft.com/en-gb/dotnet/core/): 3.1-sdk/runtime/aspnet, 2.2-sdk/runtime/aspnet and 2.1-sdk/runtime/aspnet
 - [`run`](#run-vs-build) and [`build`](#run-vs-build) variants designed for multistage builds.
 - [cross-build](#building-arm-containers-on-x86-machines) functionality for building ARM containers on x86.
 - Helpful package installer script called `install_packages` inspired by [minideb](https://github.com/bitnami/minideb#why-use-minideb).
@@ -62,25 +62,25 @@ If no variant is specified, the image defaults to `run`
 
 #### Examples
 
-`balenalib/raspberrypi3-node:10.10`
+`balenalib/raspberrypi3-node:10.17`
 
 - `<hw>` : raspberrypi3 - The raspberry pi 3 device type.
 - `<distro>` : omitted, so it defaults to Debian.
 - `<lang>` : node - the Node.js runtime and npm will be installed
-- `<lang_ver>` : 10.10 - This gives us node.js version 10.10.x whatever is the latest patch version provided on balenalib
+- `<lang_ver>` : 10.17 - This gives us node.js version 10.17.x whatever is the latest patch version provided on balenalib
 - `<distro_ver>` : omitted, so it defaults to `stretch`
 - `(build|run)` : omitted, so the image defaults to the slimmed down `run` variant
-- `<yyyymmdd>` : omitted, we don’t have a date frozen image, so new updates pushed to our 10.10 tag, for example patch versions from node.js will automatically be inherited when they are available.
+- `<yyyymmdd>` : omitted, we don’t have a date frozen image, so new updates pushed to our 10.17 tag, for example patch versions from node.js will automatically be inherited when they are available.
 
-`balenalib/i386-ubuntu-python:latest-trusty-build-20181029`
+`balenalib/i386-ubuntu-python:latest-bionic-build-20191029`
 
 - `<hw>` : i386 - the intel 32 bit architecture that runs on Intel Edison
 - `<distro>` : ubuntu
 - `<lang>` : python
-- `<lang_ver>` : `latest` points to the latest python 2 version, which currently is 2.7.15
-- `<distro_ver>` : trusty is Ubuntu 14.04
+- `<lang_ver>` : `latest` points to the latest python 2 version, which currently is 2.7.17
+- `<distro_ver>` : bionic is Ubuntu 18.04
 - `(build|run)` : `build` - to include things like `build-essential` and `gcc`
-- `<yyyymmdd>` : 20181029 is a date frozen image - so this image will never be updated on dockerhub. Pinning to a date frozen base image is a good idea if you are running a fleet in production and are sensitive to dependencies updating and/or bandwidth constrained.
+- `<yyyymmdd>` : 20191029 is a date frozen image - so this image will never be updated on dockerhub. Pinning to a date frozen base image is a good idea if you are running a fleet in production and are sensitive to dependencies updating and/or bandwidth constrained.
 
 ### run vs. build
 
@@ -112,18 +112,18 @@ Currently balenalib supports the following OS distributions and Language stacks,
 
 | Distribution | Default                | Supported Architectures                      |
 |---------|------------------------------|----------------------------------------------|
-| Debian  | Debian GNU/Linux 9 (stretch) | armv5e, armv6, armv7hf, aarch64, amd64, i386 |
+| Debian  | Debian GNU/Linux 10 (Buster) | armv5e, armv6, armv7hf, aarch64, amd64, i386 |
 | Alpine  | Alpine Linux v3.10            | armv6, armv7hf, aarch64, amd64, i386 		|
 | Ubuntu  | 18.04 LTS (Bionic Beaver)    | armv7hf, aarch64, amd64, i386                |
-| Fedora  | Fedora 29 (Twenty Nine)      | armv7hf, aarch64, amd64, i386                |
+| Fedora  | Fedora 30 (Thirty)      | armv7hf, aarch64, amd64, i386                |
 
 | Language | Default  	                  | Supported Architectures                      |
 |---------|------------------------------|----------------------------------------------|
-| Node.js | v12.7.0                      | armv6, armv7hf, aarch64, amd64, i386         |
-| Python  | v2.7.16                       | armv5e, armv6, armv7hf, aarch64, amd64, i386 |
-| OpenJDK | v1.8.0_181                    | armv7hf, aarch64, amd64, i386, armv6         |
-| Go      | 1.12.7                        | armv7hf, aarch64, amd64, i386, armv6         |
-| Dotnet  | 2.2-sdk                       | armv7hf, aarch64, amd64                |
+| Node.js | v13.1.0                      | armv6, armv7hf, aarch64, amd64, i386         |
+| Python  | v2.7.17                       | armv5e, armv6, armv7hf, aarch64, amd64, i386 |
+| OpenJDK | v11-jdk                    | armv7hf, aarch64, amd64, i386, armv6         |
+| Go      | 1.13.4                       | armv7hf, aarch64, amd64, i386, armv6         |
+| Dotnet  | 3.1-sdk                       | armv7hf, aarch64, amd64                |
 
 #### Notices
 
