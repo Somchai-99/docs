@@ -77,10 +77,10 @@ If no variant is specified, the image defaults to `run`
 - `<hw>` : i386 - the intel 32 bit architecture that runs on Intel Edison
 - `<distro>` : ubuntu
 - `<lang>` : python
-- `<lang_ver>` : `latest` points to the latest python 2 version, which currently is 2.7.17
+- `<lang_ver>` : `latest` points to the latest Python 2 version, which currently is 2.7.17
 - `<distro_ver>` : bionic is Ubuntu 18.04
 - `(build|run)` : `build` - to include things like `build-essential` and `gcc`
-- `<yyyymmdd>` : 20191029 is a date frozen image - so this image will never be updated on dockerhub. Pinning to a date frozen base image is a good idea if you are running a fleet in production and are sensitive to dependencies updating and/or bandwidth constrained.
+- `<yyyymmdd>` : 20191029 is a date frozen image - so this image will never be updated on Docker Hub. Pinning to a date frozen base image is a good idea if you are running a fleet in production and are sensitive to dependencies updating and/or bandwidth constrained.
 
 ### run vs. build
 
@@ -115,7 +115,7 @@ Currently balenalib supports the following OS distributions and Language stacks,
 | Debian  | Debian GNU/Linux 10 (Buster) | armv5e, armv6, armv7hf, aarch64, amd64, i386 |
 | Alpine  | Alpine Linux v3.10            | armv6, armv7hf, aarch64, amd64, i386 		|
 | Ubuntu  | 18.04 LTS (Bionic Beaver)    | armv7hf, aarch64, amd64, i386                |
-| Fedora  | Fedora 30 (Thirty)      | armv7hf, aarch64, amd64, i386                |
+| Fedora  | Fedora 30               | armv7hf, aarch64, amd64, i386                |
 
 | Language | Default  	                  | Supported Architectures                      |
 |---------|------------------------------|----------------------------------------------|
